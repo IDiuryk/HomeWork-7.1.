@@ -1,0 +1,44 @@
+const dogPatron = {
+name: "Патрон",
+age: "5", 
+gender: "male",
+role: "Собака-винюхувач вибухівок",
+nationality: "український",
+isBrave: true, 
+
+getInfo: function() {
+for (let key in this) {
+            if (typeof this[key] !== 'function') {
+                console.log(`${key}: ${this[key]}`);
+            }
+        }
+    }
+};
+
+//Інформація про об"єкт obj.getInfo(); 
+dogPatron.getInfo();
+
+//інформація про об'єкт 
+name: "Патрон",
+age: "5", 
+gender: "male",
+role: "Собака-винюхувач вибухівок",
+nationality: "український",
+isBrave = true, 
+
+//Додати нову властивість до об"єкту obj.newProperty = 'Нова властивість!';
+
+dogPatron.character = "friendly!";
+
+//Вивести інформайію про об"єкт включачаюи додану нову властивість obj.getInfo();
+
+dogPatron.getInfo();
+
+//інформація про об'єкт
+name: "Патрон",
+age: "5", 
+gender: "male",
+role: "Собака-винюхувач вибухівок",
+nationality: "український",
+isBrave: true, 
+character: friendly,

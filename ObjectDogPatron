@@ -15,10 +15,10 @@ if (typeof this[key] !== 'function') {
 }
 };
 
-//Інформація про об"єкт obj.getInfo(); 
+//вивести інформацію про об"єкт obj.getInfo(); 
 dogPatron.getInfo();
 
-//інформація про об'єкт 
+//інформація про об'єкт
 name: "Патрон",
 age: "5", 
 gender: "male",
@@ -30,7 +30,7 @@ isBrave = true,
 
 dogPatron.character = "friendly!";
 
-//Вивести інформайію про об"єкт включачаюи додану нову властивість obj.getInfo();
+//Вивести інформацію про об"єкт включачаючи додану нову властивість obj.getInfo();
 
 dogPatron.getInfo();
 

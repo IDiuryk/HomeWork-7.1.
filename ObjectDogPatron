@@ -6,13 +6,13 @@ role: "Собака-винюхувач вибухівок",
 nationality: "український",
 isBrave: true, 
 
-getInfo: function() {
-for (let key in this) {
-if (typeof this[key] !== 'function') {
-  console.log(`${key}: ${this[key]}`);
-}
-}
-}
+   getInfo: function() {
+     for (let key in this) {
+       if (typeof this[key] !== 'function') {
+         console.log(`${key}: ${this[key]}`);
+       }
+     }
+    }
 };
 
 //вивести інформацію про об"єкт obj.getInfo(); 

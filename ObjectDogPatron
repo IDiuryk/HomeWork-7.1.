@@ -8,11 +8,11 @@ isBrave: true,
 
 getInfo: function() {
 for (let key in this) {
-            if (typeof this[key] !== 'function') {
-                console.log(`${key}: ${this[key]}`);
-            }
-        }
-    }
+if (typeof this[key] !== 'function') {
+  console.log(`${key}: ${this[key]}`);
+}
+}
+}
 };
 
 //Інформація про об"єкт obj.getInfo(); 

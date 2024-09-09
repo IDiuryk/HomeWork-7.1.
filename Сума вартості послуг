@@ -5,3 +5,42 @@ var services = {
 };
 
   price: function() {
+let total = 0;
+        for (let key in this) {
+            if (this.hasOwnProperty(key) && typeof this[key] === 'string') {
+                let price = parseInt(this[key]);
+                if (!isNaN(price)) {
+                    total += price;
+                }
+            }
+        }
+        return total + " грн";
+    },
+
+//метод minPrice()
+minPrice: function() {
+        let min = Infinity;
+        for (let key in this) {
+            if (this.hasOwnProperty(key) && typeof this[key] === 'string') {
+                let price = parseInt(this[key]);
+                if (!isNaN(price) && price < min) {
+                    min = price;
+                }
+            }
+        }
+        return min + " грн";
+
+//метод maxPrice()
+maxPrice: function() {
+        let max = -Infinity;
+        for (let key in this) {
+            if (this.hasOwnProperty(key) && typeof this[key] === 'string') {
+                let price = parseInt(this[key]);
+                if (!isNaN(price) && price > max) {
+                    max = price;
+                }
+            }
+        }
+        return max + " грн";
+    }
+};

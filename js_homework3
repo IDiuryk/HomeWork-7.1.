@@ -1,0 +1,11 @@
+def pow(x, y):
+    result = 1
+    for _ in range(abs(y)):
+        result *= x
+    if y < 0:
+        return 1 / result
+    return result
+
+// Приклад
+print(pow(2, 3))  # 8
+print(pow(2, -3))  # 0.125

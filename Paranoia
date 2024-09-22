@@ -1,1 +1,37 @@
+var arr = [
+    {
+        userName: "Test",
+        lastName: "Test",
+        email: "test.test@gmail.com"
+    },
+    {
+        userName: "Dmitro",
+        lastName: "Porohov",
+        email: "dmitro_p.orohov@yahoo.com"
+    },
+    {
+        userName: "Andrii",
+        lastName: "",
+        email: "andrii@mail.ru" // Нам такі не підходять
+    },
+    {
+        userName: "Invalid",
+        lastName: "Email",
+        email: "invalid-email@gmail.com" // Нам такі теж не підходять
+    }
+];
 
+// Функція для валідації та фільтрації email за заданими критеріями
+function getTrustedEmails(arr) {
+    // Регулярний вираз для перевірки
+    const emailPattern = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@(gmail\.com|yahoo\.com)$/;
+
+    // Фільтруємо та збираємо тільки валідні та довірені email
+    return arr
+        .filter(item => emailPattern.test(item.email))
+        .map(item => item.email);
+}
+
+// Викликаємо функцію для відфільтрованого масиву
+var trustedEmails = getTrustedEmails(arr);
+console.log(trustedEmails);

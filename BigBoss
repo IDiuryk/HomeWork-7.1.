@@ -66,9 +66,6 @@ function findValueByKey(companyObject, companyName) {
       }
     }
   }
-
-  // Якщо компанію не знайдено, повертається null
-  return null;
 }
 
 

@@ -42,12 +42,12 @@ const company = {
 };
 
 function findValueByKey(companyObject, companyName) {
-  // Перевірка, чи збігається поточна компанія з шуканим іменем
+  // Перевірка, чи збігається поточна компанія з таким іменем
   if (companyObject.name === companyName) {
     return companyObject;
   }
 
-  // Якщо компанія має клієнтів, проходимося по кожному з них
+  // Чи має компанія клієнтів, якщо так тоді проходимося по кожному з них
   if (companyObject.clients) {
     for (const client of companyObject.clients) {
       const result = findValueByKey(client, companyName);
@@ -57,7 +57,7 @@ function findValueByKey(companyObject, companyName) {
     }
   }
 
-  // Якщо компанія має партнерів
+  // Чи компанія має партнерів
   if (companyObject.partners) {
     for (const partner of companyObject.partners) {
       const result = findValueByKey(partner, companyName);
@@ -67,11 +67,10 @@ function findValueByKey(companyObject, companyName) {
     }
   }
 
-  // Якщо компанію не знайдено, повертаємо null
+  // Якщо компанію не знайдено, повертається null
   return null;
 }
 
-// Приклад використання
 console.log(findValueByKey(company, 'Клієнт 1.2.3'));
 console.log(findValueByKey(company, 'Клієнт 1.1'));
 console.log(findValueByKey(company, 'Клієнт 2'));

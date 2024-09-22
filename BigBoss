@@ -1,1 +1,79 @@
+const company = {
+  name: 'Велика Компанія',
+  type: 'Головна компанія',
+  platform: 'Платформа для продажу квитків',
+  sellsSolution: 'Рішення для продажу квитків',
+  clients: [
+    {
+      name: 'Клієнт 1',
+      type: 'subCompany',
+      uses: 'ПО для продажу квитків',
+      sells: 'Рішення для продажу квитків',
+      partners: [
+        {
+          name: 'Клієнт 1.1',
+          type: 'subSubCompany',
+          uses: 'Рішення для продажу квитків',
+          sells: 'Рішення для продажу квитків',
+        },
+        {
+          name: 'Клієнт 1.2',
+          type: 'subSubCompany',
+          uses: 'Рішення для продажу квитків',
+          sells: 'Рішення для продажу квитків',
+          partners: [
+            {
+              name: 'Клієнт 1.2.3',
+              type: 'subSubCompany',
+              uses: 'Рішення для продажу квитків',
+              sells: 'Рішення для продажу квитків',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'Клієнт 2',
+      type: 'subCompany',
+      uses: 'ПО для продажу квитків',
+      sells: 'Рішення для продажу квитків'
+    }
+  ]
+};
+
+function findValueByKey(companyObject, companyName) {
+  // Перевірка, чи збігається поточна компанія з шуканим іменем
+  if (companyObject.name === companyName) {
+    return companyObject;
+  }
+
+  // Якщо компанія має клієнтів, проходимося по кожному з них
+  if (companyObject.clients) {
+    for (const client of companyObject.clients) {
+      const result = findValueByKey(client, companyName);
+      if (result) {
+        return result;
+      }
+    }
+  }
+
+  // Якщо компанія має партнерів
+  if (companyObject.partners) {
+    for (const partner of companyObject.partners) {
+      const result = findValueByKey(partner, companyName);
+      if (result) {
+        return result;
+      }
+    }
+  }
+
+  // Якщо компанію не знайдено, повертаємо null
+  return null;
+}
+
+// Приклад використання
+console.log(findValueByKey(company, 'Клієнт 1.2.3'));
+console.log(findValueByKey(company, 'Клієнт 1.1'));
+console.log(findValueByKey(company, 'Клієнт 2'));
+console.log(findValueByKey(company, 'Невідома компанія')); // null
 
